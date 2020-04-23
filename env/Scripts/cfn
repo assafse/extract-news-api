@@ -1,0 +1,4 @@
+#!e:\devtest\extract-news-api\env\scripts\python.exe
+# EASY-INSTALL-SCRIPT: 'troposphere==2.6.0','cfn'
+__requires__ = 'troposphere==2.6.0'
+__import__('pkg_resources').run_script('troposphere==2.6.0', 'cfn')

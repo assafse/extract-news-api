@@ -1,0 +1,18 @@
+service: awsoverflow
+
+provider:
+  name: aws
+  runtime: python3.6
+  versionFunctions: false
+  memorySize: 128
+  region: me-south-1
+
+
+functions:
+  hello:
+    handler: app.get_article
+    events:
+      - http:
+          path: v0/article/${param:<url>}
+          method: get
+          
