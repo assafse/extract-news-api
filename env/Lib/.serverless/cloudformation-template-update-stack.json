@@ -56,10 +56,10 @@
         }
       }
     },
-    "HelloLogGroup": {
+    "GetUnderscorearticleLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/awsoverflow-dev-hello"
+        "LogGroupName": "/aws/lambda/awsoverflow-dev-get_article"
       }
     },
     "IamRoleLambdaExecution": {
@@ -137,16 +137,16 @@
         }
       }
     },
-    "HelloLambdaFunction": {
+    "GetUnderscorearticleLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsoverflow/dev/1587631769529-2020-04-23T08:49:29.529Z/awsoverflow.zip"
+          "S3Key": "serverless/awsoverflow/dev/1587639343086-2020-04-23T10:55:43.086Z/awsoverflow.zip"
         },
-        "FunctionName": "awsoverflow-dev-hello",
+        "FunctionName": "awsoverflow-dev-get_article",
         "Handler": "app.get_article",
         "MemorySize": 128,
         "Role": {
@@ -159,7 +159,7 @@
         "Timeout": 6
       },
       "DependsOn": [
-        "HelloLogGroup",
+        "GetUnderscorearticleLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
@@ -233,7 +233,7 @@
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "HelloLambdaFunction",
+                    "GetUnderscorearticleLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -245,7 +245,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1587631760120": {
+    "ApiGatewayDeployment1587639334418": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -257,12 +257,12 @@
         "ApiGatewayMethodV0ArticleGet"
       ]
     },
-    "HelloLambdaPermissionApiGateway": {
+    "GetUnderscorearticleLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "HelloLambdaFunction",
+            "GetUnderscorearticleLambdaFunction",
             "Arn"
           ]
         },

@@ -5,14 +5,14 @@ provider:
   runtime: python3.6
   versionFunctions: false
   memorySize: 128
-  region: me-south-1
+  region: us-east-1
 
 
 functions:
-  hello:
+  get_article:
     handler: app.get_article
     events:
       - http:
-          path: v0/article/${param:<url>}
+          path: v0/article
           method: get
           
